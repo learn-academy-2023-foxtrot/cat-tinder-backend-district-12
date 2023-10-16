@@ -1,0 +1,2 @@
+class TributesController < ApplicationController
+end
