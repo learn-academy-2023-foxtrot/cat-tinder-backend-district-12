@@ -20,7 +20,7 @@ RSpec.describe Tribute, type: :model do
     )
     expect(tribute.errors[:age]).to_not be_empty
   end
-  it 'should return length of hobby' do
+  it 'should validate length of hobby' do
     tribute = Tribute.create(
       name: 'Katniss Everdeen',
       age: 16, 
@@ -30,7 +30,7 @@ RSpec.describe Tribute, type: :model do
     )
     expect(tribute.errors[:hobby]).to_not be_empty
   end
-  it 'should return image' do
+  it 'should validate image' do
     tribute = Tribute.create(
       name: 'Katniss Everdeen',
       age: 16, 
@@ -40,7 +40,7 @@ RSpec.describe Tribute, type: :model do
     )
     expect(tribute.errors[:image]).to_not be_empty
   end
-  it 'should return district' do
+  it 'should validate district' do
     tribute = Tribute.create(
       name: 'Katniss Everdeen',
       age: 16, 
