@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Tributes", type: :request do
   describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
       it "gets a list of tributes" do
         Tribute.create(
           name: 'Katniss Everdeen', 
@@ -20,6 +19,22 @@ RSpec.describe "Tributes", type: :request do
         expect(tribute.length).to eq 1
       end
     end
+    describe "POST /create" do
+      it "creates a tribute" do 
+        tribute_params = {
+          tribute: {
+            name: 'Katniss Everdeen', 
+            age: 16, 
+            hobby: 'shooting up birds and squirrels', 
+            image: 'https://live.staticflickr.com/606/21731063948_c2bdd0aef6_b.jpg', 
+            district: 'District 12'
+          }
+        }
+        post '/tributes', params: tribute_params
+        expect(response).to have_http_status(200)
+        tribute = Tribute.first
+        expect(tribute.name).to eq 'Katniss Everdeen'
+      end
+    end
   end
 
-end
