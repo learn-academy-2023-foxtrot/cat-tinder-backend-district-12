@@ -5,8 +5,12 @@ class TributesController < ApplicationController
     end
   
     def create
-    tribute = Tribute.create(tribute_params)
-    render json: tribute
+    new_tribute = Tribute.create(tribute_params)
+        if new_tribute.valid?
+            render json: new_tribute
+        else
+            render json: new_tribute.errors, status: 422
+        end
     end
   
     def update
