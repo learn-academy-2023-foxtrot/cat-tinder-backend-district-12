@@ -16,11 +16,11 @@ class TributesController < ApplicationController
     def update
     tribute = Tribute.find(params[:id])
     tribute.update(tribute_params)
-    if tribute.valid?
-        render json: tribute
-    else
-        render json: tribute.errors, status: 422
-    end
+        if tribute.valid?
+            render json: tribute
+        else
+            render json: tribute.errors, status: 422
+        end
     end
   
     def destroy
