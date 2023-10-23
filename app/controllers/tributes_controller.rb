@@ -24,6 +24,13 @@ class TributesController < ApplicationController
     end
   
     def destroy
+        tribute = Tribute.find(params[:id])
+        tribute_all = Tribute.all
+        if tribute.destroy
+            render json: tribute_all
+        else 
+            render json: tribute.errors, status: 422
+        end 
     end
 
     private
