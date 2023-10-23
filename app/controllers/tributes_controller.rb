@@ -24,6 +24,9 @@ class TributesController < ApplicationController
     end
   
     def destroy
+        tribute = Tribute.find(params[:id])
+        tribute.destroy
+        render json: {message: "Successfully removed favorite"}
     end
 
     private
